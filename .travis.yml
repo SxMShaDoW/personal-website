@@ -2,6 +2,8 @@ sudo: false
 language: node_js
 node_js:
 - stable
+script:
+- echo "success"
 deploy:
   provider: gcs
   access_key_id: GOOGMM2NHY7ICQ7TBVOH
