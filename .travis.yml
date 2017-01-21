@@ -4,13 +4,8 @@ node_js:
 - stable
 script:
 - echo "success"
-deploy:
-  provider: gcs
-  access_key_id: GOOGMM2NHY7ICQ7TBVOH
-  secret_access_key:
-    secure: oWyQMsvbMpnvuSk9Ru12RIdYsvlWdZoB1XHxgNMtR5FKfqF2OxHaGANDwKrNn3Xil4Mn09LKwvRw1kXWrkF7m2h9iljilK5EwQ4pNDc0HAtM8S0HVPlV8VPIG5YFDaXdxAdTu8PI9L/LNlGENsqwi+adr40wriHZo/KktdT3LTkn1SSPo3vnO/mmq3nLXqHB6PyoaQ1GeidGIrDe7otPO71qAVOKk+GO2grklXfaXlLIgNPoUXi8wDAJU4v30Q+/XUFzgIk3t08goA4QDK1jo23CzE6K7Cv9Afl2GCqCITLmLsmpkVdZxIjfzXeCYbfHl57l1nxPOGanGKX36LwQNxRh+O8vWIN3JdrI2orlrPDB16IIp6mAHEEmXoWbjxG4jVsbrJaHHqWPfSkSriByZM9H/SPldLbP+IepetACq++PwX8WEM84pqCWwnLm1I1KAe3znl9IdpcuE1+QgvaGOZGDnMblCq3NOxoVuhGNnUwUwRzrew83il4SIi8JhuU7twIDGSvKCeLN4jpXhiLoOG0j3q/KsSBTWQqUtP06mf0mbDXkfuQUde54ATYSPwbRYrO2+BP1BpMTkDPexi6F3rW1SO4qUmhAsBa/jipj6iYZMTFUSOf3uKURSRFADQAXEwmhkZKgvJNjozu1RCT9riUw2b2wXSEo8vhe++WMa/w=
-  bucket: www.doriankersch.com
-  skip_cleanup: true
-  acl: public-read
-  on:
-    repo: SxMShaDoW/personal-website
+install:
+- npm install -g firebase-tools
+after_success:
+- firebase deploy --only hosting --email ${FIREBASE_USERNAME} --password ${FIREBASE_PASSWORD}
+
